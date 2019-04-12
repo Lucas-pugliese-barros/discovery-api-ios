@@ -13,7 +13,4 @@ struct Api: Codable {
     var id: String
     var kind: String
     var name: String
-    
-    
-    
 }

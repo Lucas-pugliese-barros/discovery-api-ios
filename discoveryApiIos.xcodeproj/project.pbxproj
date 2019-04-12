@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		5C092F842258D89000E5FA1B /* discoveryApiIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C092F832258D89000E5FA1B /* discoveryApiIosTests.swift */; };
 		5C092F8F2258D89100E5FA1B /* discoveryApiIosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C092F8E2258D89100E5FA1B /* discoveryApiIosUITests.swift */; };
 		5C092F9F2258EE3E00E5FA1B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C092F9E2258EE3E00E5FA1B /* Api.swift */; };
+		5CE9A8B4225920D600234EA6 /* DiscoveryApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9A8B3225920D600234EA6 /* DiscoveryApis.swift */; };
+		5CE9A8BC2259387A00234EA6 /* ApiViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9A8BB2259387A00234EA6 /* ApiViewCell.swift */; };
 		B518224906D5FA0FA4689FC4 /* Pods_discoveryApiIosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DCFE9BF1980F8C7A2B4EDB /* Pods_discoveryApiIosUITests.framework */; };
 		E346A681461570CCFE23CCD8 /* Pods_discoveryApiIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D2A22A58BCC9B81355FAE /* Pods_discoveryApiIosTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		5C092F8E2258D89100E5FA1B /* discoveryApiIosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discoveryApiIosUITests.swift; sourceTree = "<group>"; };
 		5C092F902258D89100E5FA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C092F9E2258EE3E00E5FA1B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		5CE9A8B3225920D600234EA6 /* DiscoveryApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryApis.swift; sourceTree = "<group>"; };
+		5CE9A8BB2259387A00234EA6 /* ApiViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewCell.swift; sourceTree = "<group>"; };
 		6EA90AB3516B235461374BB9 /* Pods-discoveryApiIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discoveryApiIosTests.debug.xcconfig"; path = "Target Support Files/Pods-discoveryApiIosTests/Pods-discoveryApiIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8B2341432C39FB97500FC07 /* Pods-discoveryApiIosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discoveryApiIosUITests.release.xcconfig"; path = "Target Support Files/Pods-discoveryApiIosUITests/Pods-discoveryApiIosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E844DD59CB7ABE82F720A7D1 /* Pods-discoveryApiIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discoveryApiIos.release.xcconfig"; path = "Target Support Files/Pods-discoveryApiIos/Pods-discoveryApiIos.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		5C092F6D2258D88E00E5FA1B /* discoveryApiIos */ = {
 			isa = PBXGroup;
 			children = (
+				5CE9A8B5225937A500234EA6 /* Views */,
+				5CE9A8AF22591EBC00234EA6 /* Data */,
 				5C092F9D2258EE2600E5FA1B /* Models */,
 				5C092F6E2258D88E00E5FA1B /* AppDelegate.swift */,
 				5C092F702258D88E00E5FA1B /* ViewController.swift */,
@@ -159,8 +165,64 @@
 			isa = PBXGroup;
 			children = (
 				5C092F9E2258EE3E00E5FA1B /* Api.swift */,
+				5CE9A8B3225920D600234EA6 /* DiscoveryApis.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5CE9A8AE22591B0400234EA6 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		5CE9A8AF22591EBC00234EA6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9A8B222591F5A00234EA6 /* Local */,
+				5CE9A8B022591EC900234EA6 /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5CE9A8B022591EC900234EA6 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9A8B122591ED600234EA6 /* Services */,
+				5CE9A8AE22591B0400234EA6 /* Repositories */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		5CE9A8B122591ED600234EA6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5CE9A8B222591F5A00234EA6 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		5CE9A8B5225937A500234EA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9A8B6225937B500234EA6 /* Apis */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5CE9A8B6225937B500234EA6 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				5CE9A8BB2259387A00234EA6 /* ApiViewCell.swift */,
+			);
+			path = Apis;
 			sourceTree = "<group>";
 		};
 		E096540884E13A6CBE880FF6 /* Pods */ = {
@@ -173,7 +235,6 @@
 				0EF2DC9B0F88CB0728216490 /* Pods-discoveryApiIosUITests.debug.xcconfig */,
 				D8B2341432C39FB97500FC07 /* Pods-discoveryApiIosUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,19 +310,22 @@
 				TargetAttributes = {
 					5C092F6A2258D88E00E5FA1B = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 					5C092F7E2258D89000E5FA1B = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 5C092F6A2258D88E00E5FA1B;
 					};
 					5C092F892258D89000E5FA1B = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 5C092F6A2258D88E00E5FA1B;
 					};
 				};
 			};
 			buildConfigurationList = 5C092F662258D88E00E5FA1B /* Build configuration list for PBXProject "discoveryApiIos" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -406,6 +470,8 @@
 				5C092F712258D88E00E5FA1B /* ViewController.swift in Sources */,
 				5C092F9F2258EE3E00E5FA1B /* Api.swift in Sources */,
 				5C092F6F2258D88E00E5FA1B /* AppDelegate.swift in Sources */,
+				5CE9A8B4225920D600234EA6 /* DiscoveryApis.swift in Sources */,
+				5CE9A8BC2259387A00234EA6 /* ApiViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,8 +636,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -583,10 +648,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = discoveryApiIos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barros.pugliese.discoveryApiIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -601,10 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = discoveryApiIos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barros.pugliese.discoveryApiIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -620,11 +679,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = discoveryApiIosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barros.pugliese.discoveryApiIosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -641,11 +696,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = discoveryApiIosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barros.pugliese.discoveryApiIosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -661,11 +712,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = discoveryApiIosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barros.pugliese.discoveryApiIosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -681,11 +728,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = discoveryApiIosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barros.pugliese.discoveryApiIosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
