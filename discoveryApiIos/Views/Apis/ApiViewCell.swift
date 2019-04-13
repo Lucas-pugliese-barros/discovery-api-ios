@@ -10,7 +10,8 @@ import UIKit
 
 class ApiViewCell: UITableViewCell {
     
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var descricao: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,8 +20,7 @@ class ApiViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        print(selected, animated)
         // Configure the view for the selected state
-    }
-
+    }    
 }

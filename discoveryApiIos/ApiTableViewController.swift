@@ -1,25 +1,20 @@
 //
-//  ViewController.swift
+//  ApiTableViewController.swift
 //  discoveryApiIos
 //
-//  Created by Rafael Pugliese on 06/04/19.
+//  Created by Rafael Pugliese on 11/04/19.
 //  Copyright © 2019 Lucas Pugliese. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class ApiTableViewController: UITableViewController {
+
     var discoveryApi = DiscoveryApis()
-    
-    @IBOutlet weak var tableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableview.register(ApiViewCell.self, forCellReuseIdentifier: "ApiViewCell")
-        // Do any additional setup after loading the view, typically from a nib.
-        
+
         let url = URL(string: "https://www.googleapis.com/discovery/v1/apis/")!
         let myRequest = URLRequest(url: url)
         
@@ -43,24 +38,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(self.discoveryApi)
             
             DispatchQueue.main.async {
-                self.tableview.reloadData()
+                self.tableView.reloadData()
             }
         }
         
         task.resume()
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.discoveryApi.items.count)
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
     }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return self.discoveryApi.items.count
+    }
+
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableview.dequeueReusableCell(withIdentifier: "ApiViewCell", for: indexPath) as! ApiViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "apiCell", for: indexPath) as! ApiViewCell
+
+        let item = self.discoveryApi.items[indexPath.row]
         
-        cell.title?.text = "Title"
-        cell.descript?.text = "Description"
+        if cell.titulo != nil {
+            cell.titulo.font = UIFont.boldSystemFont(ofSize: 16.0)
+            cell.titulo.text = item.title
+        }
         
+        if cell.descricao != nil {
+            cell.descricao.text = item.description
+        }
+
         return cell
     }
-}
 
+}
