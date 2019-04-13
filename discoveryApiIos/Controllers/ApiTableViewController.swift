@@ -10,13 +10,21 @@ import UIKit
 
 class ApiTableViewController: UITableViewController {
 
+    var databaseManager: DatabaseManager?
+    var apiRemoteService: ApiRemoteService?
+    var apiLocalService: ApiLocalService?
+    
     var discoveryApi = DiscoveryApis()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let apiService = ApiService(controller: self)
-        apiService.consultarApis()
+        databaseManager = DatabaseManager()
+        apiRemoteService = ApiRemoteService(controller: self)
+        apiLocalService = ApiLocalService()
+        
+        apiRemoteService?.getAll()
+        databaseManager?.createTables()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -24,13 +32,17 @@ class ApiTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.discoveryApi.items.count
+        return discoveryApi.items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "apiCell", for: indexPath) as! ApiViewCell
 
-        let item = self.discoveryApi.items[indexPath.row]
+        let item = discoveryApi.items[indexPath.row]
+        
+        if(indexPath.row == 1) {
+            apiLocalService?.insert(api: item)
+        }
         
         if cell.titulo != nil {
             cell.titulo.font = UIFont.boldSystemFont(ofSize: 16.0)

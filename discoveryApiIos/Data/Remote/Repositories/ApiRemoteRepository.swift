@@ -8,11 +8,11 @@
 
 import Foundation
 
-class ApiRepository {
+class ApiRemoteRepository {
     
-    var delegate: ApiService?
+    var delegate: ApiRemoteService?
 
-    func consultarApis() {        
+    func getAll() {
         var discoveryApi = DiscoveryApis()
         
         let url = URL(string: "https://www.googleapis.com/discovery/v1/apis/")!
@@ -35,9 +35,7 @@ class ApiRepository {
             
             discoveryApi = try! decoder.decode(DiscoveryApis.self, from: json!)
             
-            print(discoveryApi)
-            
-            self.delegate?.apisConsultadasComSucesso(discoveryApis: discoveryApi)
+            self.delegate?.OnSucess(discoveryApis: discoveryApi)
         }
         task.resume()
     }

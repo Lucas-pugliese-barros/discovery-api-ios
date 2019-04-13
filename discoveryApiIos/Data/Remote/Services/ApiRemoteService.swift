@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ApiService {
+class ApiRemoteService {
     
     var controller: ApiTableViewController?
     
@@ -16,13 +16,13 @@ class ApiService {
         self.controller = controller
     }
     
-    func consultarApis() {        
-        let pr = ApiRepository()
+    func getAll() {        
+        let pr = ApiRemoteRepository()
         pr.delegate = self
-        pr.consultarApis()
+        pr.getAll()
     }
     
-    func apisConsultadasComSucesso(discoveryApis: DiscoveryApis) {
+    func OnSucess(discoveryApis: DiscoveryApis) {
         self.controller?.updateApiList(discoveryApis: discoveryApis)
     }
 }
