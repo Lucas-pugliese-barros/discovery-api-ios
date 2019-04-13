@@ -19,12 +19,19 @@ class ApiTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(tapButton))
+//        self.navigationItem.rightBarButtonItem = addButton
+        
         databaseManager = DatabaseManager()
         apiRemoteService = ApiRemoteService(controller: self)
         apiLocalService = ApiLocalService()
         
         apiRemoteService?.getAll()
         databaseManager?.createTables()
+    }
+    
+    @objc func tapButton() {
+        print("Clicked")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,12 +51,12 @@ class ApiTableViewController: UITableViewController {
             apiLocalService?.insert(api: item)
         }
         
-        if cell.titulo != nil {
+        if(cell.titulo != nil) {
             cell.titulo.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.titulo.text = item.title
         }
         
-        if cell.descricao != nil {
+        if(cell.descricao != nil) {
             cell.descricao.text = item.description
         }
 

@@ -22,6 +22,7 @@
 		5CFF04402262344200C54F13 /* ApiRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF043F2262344200C54F13 /* ApiRemoteRepository.swift */; };
 		5CFF04422262400800C54F13 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF04412262400800C54F13 /* DatabaseManager.swift */; };
 		5CFF04442262552600C54F13 /* ApiLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF04432262552600C54F13 /* ApiLocalService.swift */; };
+		5CFF044922626A3700C54F13 /* FavoriteApisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF044822626A3700C54F13 /* FavoriteApisTableViewController.swift */; };
 		B518224906D5FA0FA4689FC4 /* Pods_discoveryApiIosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DCFE9BF1980F8C7A2B4EDB /* Pods_discoveryApiIosUITests.framework */; };
 		E346A681461570CCFE23CCD8 /* Pods_discoveryApiIosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415D2A22A58BCC9B81355FAE /* Pods_discoveryApiIosTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		5CFF043F2262344200C54F13 /* ApiRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRemoteRepository.swift; sourceTree = "<group>"; };
 		5CFF04412262400800C54F13 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		5CFF04432262552600C54F13 /* ApiLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLocalService.swift; sourceTree = "<group>"; };
+		5CFF044822626A3700C54F13 /* FavoriteApisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteApisTableViewController.swift; sourceTree = "<group>"; };
 		6EA90AB3516B235461374BB9 /* Pods-discoveryApiIosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discoveryApiIosTests.debug.xcconfig"; path = "Target Support Files/Pods-discoveryApiIosTests/Pods-discoveryApiIosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8B2341432C39FB97500FC07 /* Pods-discoveryApiIosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discoveryApiIosUITests.release.xcconfig"; path = "Target Support Files/Pods-discoveryApiIosUITests/Pods-discoveryApiIosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E844DD59CB7ABE82F720A7D1 /* Pods-discoveryApiIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discoveryApiIos.release.xcconfig"; path = "Target Support Files/Pods-discoveryApiIos/Pods-discoveryApiIos.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				5C0A5C572260310A009550BD /* ApiTableViewController.swift */,
+				5CFF044822626A3700C54F13 /* FavoriteApisTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				5CFF043E2262337B00C54F13 /* ApiRemoteService.swift in Sources */,
 				5CE9A8B4225920D600234EA6 /* DiscoveryApis.swift in Sources */,
 				5C0A5C582260310A009550BD /* ApiTableViewController.swift in Sources */,
+				5CFF044922626A3700C54F13 /* FavoriteApisTableViewController.swift in Sources */,
 				5CFF04442262552600C54F13 /* ApiLocalService.swift in Sources */,
 				5CFF04402262344200C54F13 /* ApiRemoteRepository.swift in Sources */,
 				5CE9A8BC2259387A00234EA6 /* ApiViewCell.swift in Sources */,
