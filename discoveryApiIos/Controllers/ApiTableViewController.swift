@@ -16,6 +16,9 @@ class ApiTableViewController: UITableViewController {
     
     var discoveryApi = DiscoveryApis()
     
+    var checkBox = UIImage(named: "checkbox")
+    var uncheckBox = UIImage(named: "uncheckbox")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,10 +44,8 @@ class ApiTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "apiCell", for: indexPath) as! ApiViewCell
-
-        //var checkBox = UIImage(named: "checkbox")
-        //var uncheckBox = UIImage(named: "uncheckbox")
-        //var isChecked:Bool = false
+        
+        discoveryApi.items[indexPath.row].isFavorite = false
         let item = discoveryApi.items[indexPath.row]
         
         if(cell.titulo != nil) {
@@ -64,14 +65,18 @@ class ApiTableViewController: UITableViewController {
     }
     
     @objc func onFavoritarClicked(_ sender: UIButton) {
-        let api = discoveryApi.items[sender.tag]
+        var api = discoveryApi.items[sender.tag]
         apiLocalService?.insert(api: api)
         
-        //let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(api.name)", preferredStyle: .alert)
-        //let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        //alert.addAction(okAction)
+        if(api.isFavorite == true) {
+            api.isFavorite = false
+            sender.setImage(uncheckBox, for: UIControl.State.normal)
+        } else {
+            api.isFavorite = true
+            sender.setImage(checkBox, for: UIControl.State.normal)
+        }
         
-        //self.present(alert, animated: true, completion: nil)
+        discoveryApi.items[sender.tag] = api
     }
     
     func updateApiList(discoveryApis: DiscoveryApis) {
