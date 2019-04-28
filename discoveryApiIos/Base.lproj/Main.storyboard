@@ -37,6 +37,11 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS6-OE-5Qq">
+                                            <rect key="frame" x="350" y="21" width="25" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button" image="uncheckbox"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="u22-M9-c2a" firstAttribute="top" secondItem="xYW-nv-Qn2" secondAttribute="topMargin" constant="13" id="4rV-m2-pFy"/>
@@ -145,4 +150,7 @@
             <point key="canvasLocation" x="124" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="uncheckbox" width="24" height="24"/>
+    </resources>
 </document>
