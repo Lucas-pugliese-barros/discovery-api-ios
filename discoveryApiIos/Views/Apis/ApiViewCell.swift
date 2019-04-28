@@ -12,6 +12,7 @@ class ApiViewCell: UITableViewCell {
     
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var descricao: UILabel!
+    @IBOutlet weak var favoritar: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

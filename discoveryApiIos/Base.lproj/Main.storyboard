@@ -55,6 +55,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descricao" destination="gss-Um-y6x" id="VLv-PF-Rlq"/>
+                                    <outlet property="favoritar" destination="BS6-OE-5Qq" id="8a4-ME-vGN"/>
                                     <outlet property="titulo" destination="u22-M9-c2a" id="Uqn-hm-27b"/>
                                 </connections>
                             </tableViewCell>

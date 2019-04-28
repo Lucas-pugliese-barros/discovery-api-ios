@@ -42,11 +42,10 @@ class ApiTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "apiCell", for: indexPath) as! ApiViewCell
 
+        //var checkBox = UIImage(named: "checkbox")
+        //var uncheckBox = UIImage(named: "uncheckbox")
+        //var isChecked:Bool = false
         let item = discoveryApi.items[indexPath.row]
-        
-        if(indexPath.row == 1) {
-            apiLocalService?.insert(api: item)
-        }
         
         if(cell.titulo != nil) {
             cell.titulo.font = UIFont.boldSystemFont(ofSize: 16.0)
@@ -56,8 +55,23 @@ class ApiTableViewController: UITableViewController {
         if(cell.descricao != nil) {
             cell.descricao.text = item.description
         }
+        
+        cell.favoritar.tag = indexPath.row
+        
+        cell.favoritar.addTarget(self, action: #selector(onFavoritarClicked(_:)), for: .touchUpInside)
 
         return cell
+    }
+    
+    @objc func onFavoritarClicked(_ sender: UIButton) {
+        let api = discoveryApi.items[sender.tag]
+        apiLocalService?.insert(api: api)
+        
+        //let alert = UIAlertController(title: "Subscribed!", message: "Subscribed to \(api.name)", preferredStyle: .alert)
+        //let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        //alert.addAction(okAction)
+        
+        //self.present(alert, animated: true, completion: nil)
     }
     
     func updateApiList(discoveryApis: DiscoveryApis) {
