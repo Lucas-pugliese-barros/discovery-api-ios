@@ -16,4 +16,14 @@ struct Api: Codable {
     var version: String
     var title: String
     var description: String
+    
+    init(id: String, kind: String, name: String, version: String, title: String, description: String) {
+        self.id = id
+        self.kind = kind
+        self.name = name
+        self.version = version
+        self.title = title
+        self.description = description
+    }
+    
 }

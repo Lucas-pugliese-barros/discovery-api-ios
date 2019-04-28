@@ -32,7 +32,7 @@ class DatabaseManager {
     func createTables() {
         let db = self.openDatabase()
         
-        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Apis (id TEXT, name TEXT)", nil, nil, nil) != SQLITE_OK {
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Apis (id TEXT, kind TEXT, name TEXT, version TEXT, title TEXT, description TEXT)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error creating table: \(errmsg)")
         }

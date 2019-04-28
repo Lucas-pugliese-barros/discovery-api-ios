@@ -19,15 +19,12 @@ class ApiTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(tapButton))
-//        self.navigationItem.rightBarButtonItem = addButton
-        
         databaseManager = DatabaseManager()
-        apiRemoteService = ApiRemoteService(controller: self)
         apiLocalService = ApiLocalService()
+        apiRemoteService = ApiRemoteService(controller: self)
         
-        apiRemoteService?.getAll()
         databaseManager?.createTables()
+        apiRemoteService?.getAll()
     }
     
     @objc func tapButton() {
