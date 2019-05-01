@@ -74,5 +74,16 @@ class ApiLocalService {
         
         return apis
     }
+    
+    func deleteAll () {
+        let sql = "DELETE FROM Apis;"
+        var stmt:OpaquePointer?
+        
+        if sqlite3_prepare(db, sql, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing sql to delete: \(errmsg)")
+        }
+        while(sqlite3_step(stmt) == SQLITE_ROW) {}
+    }
 }
 

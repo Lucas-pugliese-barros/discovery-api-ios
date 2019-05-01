@@ -8,9 +8,10 @@
 
 import Foundation
 
-class TimeTracking {
+public class TimeTracking {
     
     private static var timeHistories = [String: [Date]]()
+    private static var processingTimes = [String: String]()
     
     public static func recordTime(tag: String, message: String) {
         let formatter = DateFormatter()
@@ -22,6 +23,7 @@ class TimeTracking {
         print(tag + " - " + message + " : " + dateString)
         
         timeHistories = updateHistory(timeHistory: timeHistories, tag: tag, date: date)
+        calculateProcessingTime(timeHistory: timeHistories, tag: tag);
     }
     
     private static func updateHistory(timeHistory: [String: [Date]], tag: String, date: Date) -> [String: [Date]] {
@@ -47,5 +49,21 @@ class TimeTracking {
         history[tag] = dates
         
         return history
+    }
+    
+    private static func calculateProcessingTime(timeHistory: [String: [Date]], tag: String) {
+        if (timeHistory.keys.contains(tag) && timeHistory[tag]!.count % 2 == 0) {
+            var dates = timeHistory[tag];
+            
+            let penultimateDate = dates![dates!.count - 2];
+            let lastDate =  dates![dates!.count - 1];
+            
+            //TIME INTERVAL (IN SECONDS) * 1000 = MILLISECONDS
+            let processingTime = lastDate.timeIntervalSince(penultimateDate) * 1000;
+            let inMilliseconds = String(processingTime)
+            processingTimes[tag] = inMilliseconds
+            
+            print(tag + " PROCESSING TIME: " + inMilliseconds)
+        }
     }
 }

@@ -10,6 +10,11 @@ import UIKit
 
 class ApiTableViewController: UITableViewController {
 
+    let TAG_REMOTE = " REMOTE "
+    let TAG_LIST_REMOTE = " LIST_REMOTE "
+    let TAG_LIKE_API = " LIKE_API "
+    
+    
     var databaseManager: DatabaseManager?
     var apiRemoteService: ApiRemoteService?
     var apiLocalService: ApiLocalService?
@@ -27,6 +32,8 @@ class ApiTableViewController: UITableViewController {
         apiRemoteService = ApiRemoteService(controller: self)
         
         databaseManager?.createTables()
+        
+        TimeTracking.recordTime(tag: TAG_REMOTE, message: "loadApiList")
         apiRemoteService?.getAll()
     }
     
@@ -61,12 +68,19 @@ class ApiTableViewController: UITableViewController {
         
         cell.favoritar.addTarget(self, action: #selector(onFavoritarClicked(_:)), for: .touchUpInside)
 
+        if(indexPath.row == 3) {
+            TimeTracking.recordTime(tag: TAG_LIST_REMOTE, message: "apisListLoaded")
+        }
+        
         return cell
     }
     
     @objc func onFavoritarClicked(_ sender: UIButton) {
         var api = discoveryApi.items[sender.tag]
+        
+        trackLikeProcessingTime(TAG: TAG_LIKE_API, message: "likeApi", position: sender.tag)
         apiLocalService?.insert(api: api)
+        trackLikeProcessingTime(TAG: TAG_LIKE_API, message: "apiLiked", position: sender.tag)
         
         if(api.isFavorite == true) {
             api.isFavorite = false
@@ -80,10 +94,18 @@ class ApiTableViewController: UITableViewController {
     }
     
     func updateApiList(discoveryApis: DiscoveryApis) {
+        TimeTracking.recordTime(tag: TAG_REMOTE, message: "updateApiList")
         self.discoveryApi = discoveryApis
         
+        TimeTracking.recordTime(tag: TAG_LIST_REMOTE, message: "addingApisToList")
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    private func trackLikeProcessingTime(TAG: String, message: String, position: Int) {
+        if(position == 0 ) {
+            TimeTracking.recordTime(tag: TAG_LIKE_API, message: message)
         }
     }
 }

@@ -9,7 +9,10 @@
 import UIKit
 
 class FavoriteApisTableViewController: UITableViewController {
-     
+    
+    let TAG_LOCAL = " LOCAL "
+    let TAG_LIST_LOCAL = " LIST_LOCAL "
+    
     var apiLocalService: ApiLocalService?
     var items:[Api]?
     
@@ -17,7 +20,12 @@ class FavoriteApisTableViewController: UITableViewController {
         super.viewDidLoad()
         
         apiLocalService = ApiLocalService()
+        
+        TimeTracking.recordTime(tag: TAG_LOCAL, message: "loadApisList")
         items = apiLocalService?.getAllFavoritesApis()
+        TimeTracking.recordTime(tag: TAG_LOCAL, message: "updateApiList")
+        
+        TimeTracking.recordTime(tag: TAG_LIST_LOCAL, message: "addingApisToList")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,6 +48,11 @@ class FavoriteApisTableViewController: UITableViewController {
         
         if(cell.descricao != nil) {
             cell.descricao.text = item?.description
+        }
+        
+        if(indexPath.row == 3) {
+            TimeTracking.recordTime(tag: TAG_LIST_LOCAL, message: "apisListLoaded")
+            apiLocalService?.deleteAll()
         }
         
         return cell
