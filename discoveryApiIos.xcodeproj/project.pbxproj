@@ -17,6 +17,7 @@
 		5C092F9F2258EE3E00E5FA1B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C092F9E2258EE3E00E5FA1B /* Api.swift */; };
 		5C0A5C582260310A009550BD /* ApiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0A5C572260310A009550BD /* ApiTableViewController.swift */; };
 		5C1E14F12275DA8F0074C779 /* FavoriteApiViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E14F02275DA8F0074C779 /* FavoriteApiViewCell.swift */; };
+		5C3BB293227912CF00739EEF /* TimeTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BB292227912CF00739EEF /* TimeTracking.swift */; };
 		5CE9A8B4225920D600234EA6 /* DiscoveryApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9A8B3225920D600234EA6 /* DiscoveryApis.swift */; };
 		5CE9A8BC2259387A00234EA6 /* ApiViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE9A8BB2259387A00234EA6 /* ApiViewCell.swift */; };
 		5CFF043E2262337B00C54F13 /* ApiRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF043D2262337B00C54F13 /* ApiRemoteService.swift */; };
@@ -67,6 +68,7 @@
 		5C092F9E2258EE3E00E5FA1B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		5C0A5C572260310A009550BD /* ApiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTableViewController.swift; sourceTree = "<group>"; };
 		5C1E14F02275DA8F0074C779 /* FavoriteApiViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteApiViewCell.swift; sourceTree = "<group>"; };
+		5C3BB292227912CF00739EEF /* TimeTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracking.swift; sourceTree = "<group>"; };
 		5CE9A8B3225920D600234EA6 /* DiscoveryApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryApis.swift; sourceTree = "<group>"; };
 		5CE9A8BB2259387A00234EA6 /* ApiViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewCell.swift; sourceTree = "<group>"; };
 		5CFF043D2262337B00C54F13 /* ApiRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRemoteService.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		5C092F6D2258D88E00E5FA1B /* discoveryApiIos */ = {
 			isa = PBXGroup;
 			children = (
+				5C3BB2912279128E00739EEF /* Utils */,
 				5CFF043C226232EC00C54F13 /* Controllers */,
 				5CE9A8B5225937A500234EA6 /* Views */,
 				5CE9A8AF22591EBC00234EA6 /* Data */,
@@ -180,6 +183,14 @@
 				5CE9A8B3225920D600234EA6 /* DiscoveryApis.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5C3BB2912279128E00739EEF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5C3BB292227912CF00739EEF /* TimeTracking.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		5CE9A8AE22591B0400234EA6 /* Repositories */ = {
@@ -512,6 +523,7 @@
 				5CFF04442262552600C54F13 /* ApiLocalService.swift in Sources */,
 				5CFF04402262344200C54F13 /* ApiRemoteRepository.swift in Sources */,
 				5CE9A8BC2259387A00234EA6 /* ApiViewCell.swift in Sources */,
+				5C3BB293227912CF00739EEF /* TimeTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

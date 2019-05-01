@@ -27,8 +27,12 @@ class discoveryApiIosUITests: XCTestCase {
     }
 
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Abusive Experience Report API")/*[[".cells.containing(.staticText, identifier:\"Views Abusive Experience Report data, and gets a list of sites that have a significant number of abusive experiences.\")",".cells.containing(.staticText, identifier:\"Abusive Experience Report API\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.buttons["Button"].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Accelerated Mobile Pages (AMP) URL API")/*[[".cells.containing(.staticText, identifier:\"This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).\")",".cells.containing(.staticText, identifier:\"Accelerated Mobile Pages (AMP) URL API\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.buttons["Button"].tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Access Approval API")/*[[".cells.containing(.staticText, identifier:\"An API for controlling access to data by Google personnel.\")",".cells.containing(.staticText, identifier:\"Access Approval API\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.buttons["Button"].tap()
+        tablesQuery.children(matching: .cell).element(boundBy: 3).buttons["Button"].tap()
+        app.navigationBars["discoveryApiIos.ApiTableView"].buttons["Favoritas"].tap()
     }
-
 }
