@@ -39,7 +39,7 @@ class ApiLocalService {
             sqlite3_bind_text(insertStatement, 6, description, -1, nil)
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
-                print("Successfully inserted row.")
+                //print("Successfully inserted row.")
             } else {
                 print("Could not insert row.")
             }

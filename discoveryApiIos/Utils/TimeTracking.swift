@@ -19,8 +19,8 @@ public class TimeTracking {
         
         let date = Date()
         
-        let dateString = formatter.string(from: date)
-        print(tag + " - " + message + " : " + dateString)
+        //let dateString = formatter.string(from: date)
+        //print(tag + " - " + message + " : " + dateString)
         
         timeHistories = updateHistory(timeHistory: timeHistories, tag: tag, date: date)
         calculateProcessingTime(timeHistory: timeHistories, tag: tag);
@@ -64,6 +64,7 @@ public class TimeTracking {
             processingTimes[tag] = inMilliseconds
             
             print(tag + " PROCESSING TIME: " + inMilliseconds)
+            NSLog(tag + " PROCESSING TIME: " + inMilliseconds)
         }
     }
 }

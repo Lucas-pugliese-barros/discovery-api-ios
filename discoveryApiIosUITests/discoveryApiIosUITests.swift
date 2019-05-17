@@ -25,6 +25,13 @@ class discoveryApiIosUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    override func invokeTest() {
+        for time in 0...15 {
+            print("this test is invoking: \(time) times")
+            super.invokeTest()
+        }
+    }
 
     func testExample() {
         let app = XCUIApplication()
